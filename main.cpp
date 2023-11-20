@@ -16,7 +16,7 @@ int main(void){
 
     Player * Jeff = new Player("test");
     Mygame.addPlayer(Jeff);
-    
+
     ScoreManager test(ArrowCount,Rounds);
 
     for (int i = 0; i < Rounds; i++)
@@ -31,6 +31,9 @@ int main(void){
         }
     }
     cout << "total points: " << test.CountPoints();
+
+    ScoreManager(1,2);
+
 
     
     return 0;

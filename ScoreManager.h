@@ -1,14 +1,15 @@
 #ifndef SCOREMANAGER_H
 #define SCOREMANAGER_H
+
 #include <iostream>
 #include <vector>
 using namespace std;
+#include "BaseGameclass.h"
 
-
-
-class ScoreManager
+class ScoreManager : public basegameclass
 {
 private:
+
     int roundcount, arrowcount; 
     vector<int> roundPoints;
 public:
@@ -52,7 +53,10 @@ int count =0;
 }
 
 
-
+    
+public:
+    ScoreManager(int Arrows, int rounds): basegameclass(Arrows, rounds){}
+};
 
 
 #endif

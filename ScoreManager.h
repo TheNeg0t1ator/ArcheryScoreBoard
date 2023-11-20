@@ -28,13 +28,12 @@ int count =0;
         if (point == 11)
         {
             count += 10;
-        }else{
+        }else
             count += point;
         }
-        
-    }
-    return count;
+        return count;
 }
+    
 
 int ScoreManager::CountX(void){
 int count =0;

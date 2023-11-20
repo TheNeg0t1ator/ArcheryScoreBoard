@@ -1,25 +1,16 @@
 #ifndef SCOREMANAGER_H
 #define SCOREMANAGER_H
+#include "BaseGameclass.h"
 
-class ScoreManager
+class ScoreManager : public basegameclass
 {
 private:
-    int roundcount, arrowcount; 
-public:
-    ScoreManager(int arrows, int rounds);
     
+
+    
+public:
+    ScoreManager(int Arrows, int rounds): basegameclass(Arrows, rounds){}
 };
-
-ScoreManager::ScoreManager(int arrows, int rounds)
-{
-    roundcount = rounds;
-    arrowcount = arrows;
-
-}
-
-
-
-
 
 
 #endif

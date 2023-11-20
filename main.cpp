@@ -16,7 +16,7 @@ int main(void){
 
     Player * Jeff = new Player("test");
     Mygame.addPlayer(Jeff);
-    
+    ScoreManager(1,2);
 
     
     return 0;

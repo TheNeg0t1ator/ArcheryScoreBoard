@@ -3,30 +3,20 @@
 #include <iostream>
 #include <vector>
 #include "Player.h"
+#include "BaseGameclass.h"
 
-
-class game
+class game : public basegameclass
 {
+public:
+    void    addPlayer(Player * newplayer){players.push_back(newplayer);};    
+    game(int Arrows, int rounds): basegameclass(Arrows, rounds){}
 private:
-    
-	int     roundCount;
-    int     arrowCount;
     bool    gameDone;
     int     roundCounter;
     std::vector<Player *> players;
- 
-public:
-            game(int Arrows, int );
-    int     getrounds(){return roundCount;};
-    int     getarrow(){return arrowCount;};
-    void    addPlayer(Player * newplayer){players.push_back(newplayer);};
 };
 
-game::game(int Arrows, int rounds)
-{
-    roundCount = rounds;
-    arrowCount = Arrows;
-}
+
 
 
 #endif

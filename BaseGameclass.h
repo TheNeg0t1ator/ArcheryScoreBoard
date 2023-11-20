@@ -13,8 +13,7 @@ private:
     bool    basegameclassDone;
 };
 
-basegameclass::basegameclass(int Arrows, int rounds)
-{
+basegameclass::basegameclass(int Arrows, int rounds){
     roundCount = rounds;
     arrowCount = Arrows;
 }

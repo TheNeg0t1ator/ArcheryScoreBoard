@@ -13,18 +13,14 @@ private:
     int roundcount, arrowcount; 
     vector<int> roundPoints;
 public:
-    ScoreManager(int arrows, int rounds);
+    ScoreManager(int Arrows, int rounds): basegameclass(Arrows, rounds){roundcount = rounds;arrowcount = Arrows;};
     void Addpoint(int point){roundPoints.emplace_back(point);};
     int CountX(void);
     int CountPoints(void);
 };
 
-ScoreManager::ScoreManager(int arrows, int rounds)
-{
-    roundcount = rounds;
-    arrowcount = arrows;
 
-}
+
 
 int ScoreManager::CountPoints(void){
 int count =0;
@@ -51,12 +47,6 @@ int count =0;
     }
     return count;
 }
-
-
-    
-public:
-    ScoreManager(int Arrows, int rounds): basegameclass(Arrows, rounds){}
-};
 
 
 #endif

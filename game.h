@@ -2,28 +2,21 @@
 #define GAME_H
 #include <iostream>
 #include <vector>
+#include "Player.h"
+#include "BaseGameclass.h"
 
-
-class game
+class game : public basegameclass
 {
+public:
+    void    addPlayer(Player * newplayer){players.push_back(newplayer);};    
+    game(int Arrows, int rounds): basegameclass(Arrows, rounds){}
 private:
-    int     roundCount;
-    int     arrowCount;
     bool    gameDone;
     int     roundCounter;
- 
-public:
-            game(int Arrows, int );
-    int     getrounds(){return roundCount;};
-    int     getarrow(){return arrowCount;};
-    
+    std::vector<Player *> players;
 };
 
-game::game(int Arrows, int rounds)
-{
-    roundCount = rounds;
-    arrowCount = Arrows;
-}
+
 
 
 #endif

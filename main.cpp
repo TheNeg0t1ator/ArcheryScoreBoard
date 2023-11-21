@@ -1,5 +1,8 @@
 #include "Headers.h"
+#include "ScoreManager.h"
+#include "game.h"
 using namespace std;
+
 
 
 
@@ -7,12 +10,12 @@ int main(void){
     cout << "Welcome to the ASB." << endl;
     system("cls");
     RoundStruct GameRounds = Askrounds();
-    game Mygame();
+    game Mygame(GameRounds);
 
     Player * Jeff = new Player("test");
-    Mygame().addPlayer(Jeff);
+    Mygame.addPlayer(Jeff);
     
-    ScoreManager test();
+    ScoreManager test(GameRounds);
 
     for (int i = 0; i < GameRounds.Rounds; i++)
     {    
@@ -21,11 +24,11 @@ int main(void){
             int addscore = 0;
             cout << "Add score: ";
             cin >> addscore;
-            test().Addpoint(addscore);
+            test.Addpoint(addscore);
             system("cls");
         }
     }
-    cout << "total points: " << test().CountPoints();
+    cout << "total points: " << test.CountPoints();
 
     
     return 0;

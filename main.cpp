@@ -1,20 +1,21 @@
 #include "Headers.h"
+#include "ScoreManager.h"
+#include "game.h"
 using namespace std;
 
 
 
+
 int main(void){
-    RoundStruct GameRounds;
-    GameRounds = Askrounds();
     cout << "Welcome to the ASB." << endl;
     system("cls");
-
-    game Mygame(GameRounds.Arrows,GameRounds.Rounds);
+    RoundStruct GameRounds = Askrounds();
+    game Mygame(GameRounds);
 
     Player * Jeff = new Player("test");
     Mygame.addPlayer(Jeff);
     
-    ScoreManager test(GameRounds.Arrows,GameRounds.Rounds);
+    ScoreManager test(GameRounds);
 
     for (int i = 0; i < GameRounds.Rounds; i++)
     {    

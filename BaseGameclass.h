@@ -6,6 +6,26 @@ typedef struct{
     int Rounds;
 }RoundStruct;
 
+
+
+class basegameclass
+{
+
+public:
+            basegameclass(RoundStruct input);
+    int     getrounds(){return RoundInfo.Rounds;};
+    int     getarrow(){return RoundInfo.Arrows;};
+    void    setRoundInfo(RoundStruct input){RoundInfo = input;};
+private:    
+	RoundStruct RoundInfo;
+    bool    basegameclassDone;
+};
+
+basegameclass::basegameclass(RoundStruct input){
+    RoundInfo.Rounds = input.Rounds;
+    RoundInfo.Arrows = input.Arrows;
+}
+
 RoundStruct Askrounds(void){
     RoundStruct output;
     cout << "How many arrows per round? " << endl << ": ";
@@ -14,25 +34,6 @@ RoundStruct Askrounds(void){
     cin >> output.Rounds;
     return output;
 }
-
-class basegameclass
-{
-
-public:
-            basegameclass(int Arrows, int rounds);
-    int     getrounds(){return roundCount;};
-    int     getarrow(){return arrowCount;};
-private:    
-	int     roundCount, arrowCount;
-    bool    basegameclassDone;
-};
-
-basegameclass::basegameclass(int Arrows, int rounds){
-    roundCount = rounds;
-    arrowCount = Arrows;
-}
-
-
 
 
 

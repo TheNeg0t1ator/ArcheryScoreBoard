@@ -9,7 +9,7 @@ class game : public basegameclass
 {
 public:
     void    addPlayer(Player * newplayer){players.push_back(newplayer);};    
-    game(int Arrows, int rounds): basegameclass(Arrows, rounds){}
+    game(RoundStruct input): basegameclass(input){}
 private:
     bool    gameDone;
     int     roundCounter;

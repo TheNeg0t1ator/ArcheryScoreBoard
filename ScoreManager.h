@@ -13,7 +13,7 @@ private:
     int roundcount, arrowcount; 
     vector<int> roundPoints;
 public:
-    ScoreManager(int Arrows, int rounds): basegameclass(Arrows, rounds){roundcount = rounds;arrowcount = Arrows;};
+    ScoreManager(RoundStruct input): basegameclass(input){setRoundInfo(input);};
     void Addpoint(int point){roundPoints.emplace_back(point);};
     int CountX(void);
     int CountPoints(void);

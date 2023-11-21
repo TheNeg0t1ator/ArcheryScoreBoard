@@ -4,17 +4,15 @@ using namespace std;
 
 
 int main(void){
-    RoundStruct GameRounds;
-    GameRounds = Askrounds();
     cout << "Welcome to the ASB." << endl;
     system("cls");
-
-    game Mygame(GameRounds.Arrows,GameRounds.Rounds);
+    RoundStruct GameRounds = Askrounds();
+    game Mygame();
 
     Player * Jeff = new Player("test");
-    Mygame.addPlayer(Jeff);
+    Mygame().addPlayer(Jeff);
     
-    ScoreManager test(GameRounds.Arrows,GameRounds.Rounds);
+    ScoreManager test();
 
     for (int i = 0; i < GameRounds.Rounds; i++)
     {    
@@ -23,11 +21,11 @@ int main(void){
             int addscore = 0;
             cout << "Add score: ";
             cin >> addscore;
-            test.Addpoint(addscore);
+            test().Addpoint(addscore);
             system("cls");
         }
     }
-    cout << "total points: " << test.CountPoints();
+    cout << "total points: " << test().CountPoints();
 
     
     return 0;

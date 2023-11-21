@@ -6,8 +6,10 @@ class Tournament
 {
 private:
     std::vector<game *> gamelist;
+
 public:
     Tournament();
+    
 };
 
 Tournament::Tournament()

@@ -5,6 +5,11 @@
 #include "Player.h"
 #include "BaseGameclass.h"
 
+typedef struct{
+    Player player;
+    std::vector<int> points;
+}playerwithpoints;
+
 class game : public basegameclass
 {
 public:

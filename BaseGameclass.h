@@ -1,6 +1,20 @@
 #ifndef BASEGAMECLASS_H
 #define BASEGAMECLASS_H
 
+typedef struct{
+    int Arrows;
+    int Rounds;
+}RoundStruct;
+
+RoundStruct Askrounds(void){
+    RoundStruct output;
+    cout << "How many arrows per round? " << endl << ": ";
+    cin >> output.Arrows;
+    cout << "How many Rounds? " << endl << ": ";
+    cin >> output.Rounds;
+    return output;
+}
+
 class basegameclass
 {
 

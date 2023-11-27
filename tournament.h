@@ -2,6 +2,21 @@
 #define TOURNAMENT_H
 #include "game.h"
 
+void selectionSort(vector<game *>& input){
+    int i, j, min_index;
+    for(i= 0; i < input.size()-1; i++){
+        min_index = i;
+        for(j =i+1; j < input.size();j++){
+            if(input[j] < input[min_index] )
+            min_index = j;
+            
+        }
+        if(min_index != i)
+            swap(input[min_index], input[i]);
+    }
+}
+
+
 class Tournament
 {
 private:

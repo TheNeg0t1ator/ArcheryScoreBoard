@@ -43,9 +43,11 @@ class RankingTour: public Tournament
 
 int RankingTour::CreateGameLists(){
     //* Insert code here to create the list for pre-tournament rankings
+    
 }
 int RankingTour::InitializeTour(){
     //* Insert code here to initialize pre-tournament rankings
+
 }
 
 class BracketingTour: public Tournament
@@ -59,6 +61,8 @@ class BracketingTour: public Tournament
 
 int BracketingTour::CreateGameLists(){
     //* Insert code here to create the list for bracketing rankings
+    // check for buy.
+    
 }
 int BracketingTour::InitializeTour(){
     //* Insert code here to initialize bracketing rankings

@@ -12,10 +12,10 @@ int main(void){
     game Mygame(GameRounds);
 
     
-    Mygame.addPlayerName("Jeff");
+    Mygame.addPlayerName("jeff");
 
 
-    cout << Mygame.players[0].Getname() << endl;
+    cout << Mygame.players[0].Getid() << endl;
     
     return 0;
 }

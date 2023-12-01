@@ -13,7 +13,8 @@ public:
 //            Player(string InputName);
     string  getname     ();
     void    inputName   (string input)  {name = input;};  
-    void    inputId     (size_t input)     {playerid = input;};
+    size_t  getid       (void)          {return playerid;};
+    void    inputId     (size_t input)  {playerid = input;};
 };
 
 //Player::Player(string InputName){name = InputName;};
@@ -37,6 +38,7 @@ public:
     void    Changename          (string input)  {player.inputName(input);};
     string  Getname             (void)          {return player.getname();};
     void    Changeid            (size_t input)  {player.inputId(input);};
+    size_t  Getid               (void)          {return player.getid();}; 
 
 };
 

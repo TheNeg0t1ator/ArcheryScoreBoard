@@ -11,10 +11,11 @@ int main(void){
     RoundStruct GameRounds = Askrounds();
     game Mygame(GameRounds);
 
-    Player Jeff;
-    Mygame.addPlayer(Jeff);
+    
+    Mygame.addPlayerName("Jeff");
 
 
+    cout << Mygame.players[0].Getname() << endl;
     
     return 0;
 }

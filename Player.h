@@ -7,11 +7,13 @@ using namespace std;
 class Player
 {
 private:
-    string name;
-    int playerid;
+    string  name;
+    size_t  playerid;
 public:
 //            Player(string InputName);
-    string  getname();
+    string  getname     ();
+    void    inputName   (string input)  {name = input;};  
+    void    inputId     (size_t input)     {playerid = input;};
 };
 
 //Player::Player(string InputName){name = InputName;};
@@ -27,10 +29,14 @@ private:
     uint16_t            totalPoints;
     uint16_t            total_x;
 public:
-            PlayerWithPoints (void);
-    void    CountX          (void);
-    void    CountPoints     (void);
-    void    inputPlayer     (Player input)  { player = input;};
+            PlayerWithPoints    (void);
+    void    CountX              (void);
+    void    CountPoints         (void);
+    void    inputPlayer         (Player input)  { player = input;};
+    void    AddPoint            (int point)     {roundPoints.emplace_back(point);};
+    void    Changename          (string input)  {player.inputName(input);};
+    string  Getname             (void)          {return player.getname();};
+    void    Changeid            (size_t input)  {player.inputId(input);};
 
 };
 

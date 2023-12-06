@@ -6,6 +6,16 @@ typedef struct{
     int Rounds;
 }RoundStruct;
 
+class PointStruct
+{
+    public:
+    uint16_t            totalPoints;
+    uint16_t            total_tens;
+    uint16_t            total_x;
+};
+
+
+
 
 
 class basegameclass

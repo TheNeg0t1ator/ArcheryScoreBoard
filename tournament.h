@@ -1,13 +1,60 @@
 #ifndef TOURNAMENT_H
 #define TOURNAMENT_H
 #include "game.h"
+#include "BaseGameclass.h"
 
-void selectionSort(vector<game *>& input){
+
+
+
+int ScoreCompare (PlayerWithPoints & inputA, PlayerWithPoints & inputB){
+    PointStruct pointA = inputA.GetPoints();
+    PointStruct pointB = inputB.GetPoints();
+
+    if (pointA.totalPoints > pointB.totalPoints)
+    {
+        return 1;        
+    }else if (pointA.totalPoints = pointB.totalPoints)
+    {
+        return 0;
+    }else if (pointA.totalPoints < pointB.totalPoints)
+    {
+        return -1;
+    }else
+    {
+
+            if (pointA.total_x > pointB.total_x)
+        {
+            return 1;        
+        }else if (pointA.total_x = pointB.total_x)
+        {
+            return 0;
+        }else if (pointA.total_x < pointB.total_x)
+        {
+            return -1;
+        }
+
+    }
+    
+    
+    
+
+
+
+    return 0;
+}
+
+
+
+
+
+void SortGames(vector<game *>& input){
+    game * GameToSort = input[0];
+
     int i, j, min_index;
-    for(i= 0; i < input.size()-1; i++){
+    for(i= 0; i < GameToSort->players.size()-1; i++){
         min_index = i;
-        for(j =i+1; j < input.size();j++){
-            if(input[j] < input[min_index] )
+        for(j =i+1; j < GameToSort->players.size();j++){
+            if(ScoreCompare(GameToSort->players[min_index], GameToSort->players[j]) == 1)//GameToSort->players[j] < GameToSort->players[min_index]
             min_index = j;
             
         }
@@ -20,25 +67,24 @@ void selectionSort(vector<game *>& input){
 class Tournament
 {
 private:
-    std::vector<game *>     gamelist;
+    std::vector<game *>         gamelist;
+    bool                        TourEnd = 0;
 public:
-                            Tournament      ();
-    std::vector<game *>     getgameList     (){return gamelist;};
-    virtual int             InitializeTour  ();
-    virtual int             CreateGameLists ();
+                                Tournament      ();
+    virtual std::vector<game *> getgameList     (){return gamelist;};
+    virtual int                 InitializeTour  ();
+    virtual int                 CreateGameLists ();
+    virtual int                 Addplayer       (string name);
 };
-
-Tournament::Tournament()
-{
-}
 
 class RankingTour: public Tournament
 {
-    private:
-
-    public:
+private:
+    
+public:
     int     InitializeTour  ();
     int     CreateGameLists ();
+    int     Addplayer       (string name);
 };
 
 int RankingTour::CreateGameLists(){
@@ -49,6 +95,16 @@ int RankingTour::InitializeTour(){
     //* Insert code here to initialize pre-tournament rankings
 
 }
+
+int RankingTour::Addplayer(string name){
+    getgameList()[0]->addPlayerName(name);
+}
+
+
+
+
+
+
 
 class BracketingTour: public Tournament
 {

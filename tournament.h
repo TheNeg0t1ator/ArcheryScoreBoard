@@ -5,49 +5,25 @@
 
 
 
+class Tournament
+{
+private:
+    std::vector<game *>         gamelist;
+    bool                        TourEnd = 0;
+public:
+                                Tournament      ();
+    virtual std::vector<game *> getgameList     (){return gamelist;};
+    virtual int                 InitializeTour  ();
+    virtual int                 CreateGameLists ();
+    virtual int                 Addplayer       (string name);
+    void                        SortGames       (vector<game *>& input);
+    int                         ScoreCompare    (PlayerWithPoints & inputA, PlayerWithPoints & inputB);
+    int                         PointCompare    (uint16_t a, uint16_t b);
 
-int ScoreCompare (PlayerWithPoints & inputA, PlayerWithPoints & inputB){
-    PointStruct pointA = inputA.GetPoints();
-    PointStruct pointB = inputB.GetPoints();
-
-    if (pointA.totalPoints > pointB.totalPoints)
-    {
-        return 1;        
-    }else if (pointA.totalPoints = pointB.totalPoints)
-    {
-        return 0;
-    }else if (pointA.totalPoints < pointB.totalPoints)
-    {
-        return -1;
-    }else
-    {
-
-            if (pointA.total_x > pointB.total_x)
-        {
-            return 1;        
-        }else if (pointA.total_x = pointB.total_x)
-        {
-            return 0;
-        }else if (pointA.total_x < pointB.total_x)
-        {
-            return -1;
-        }
-
-    }
-    
-    
-    
+};
 
 
-
-    return 0;
-}
-
-
-
-
-
-void SortGames(vector<game *>& input){
+void Tournament::SortGames(vector<game *>& input){
     game * GameToSort = input[0];
 
     int i, j, min_index;
@@ -63,19 +39,30 @@ void SortGames(vector<game *>& input){
     }
 }
 
+int  Tournament::ScoreCompare(PlayerWithPoints & inputA, PlayerWithPoints & inputB){
+    PointStruct pointA = inputA.GetPoints();
+    PointStruct pointB = inputB.GetPoints();
+    int compare = PointCompare(pointA.totalPoints, pointB.totalPoints);
+    if(compare != 0){
+        return compare;
+    }else{
+        return PointCompare(pointA.total_x, pointB.total_x);
+    } 
 
-class Tournament
-{
-private:
-    std::vector<game *>         gamelist;
-    bool                        TourEnd = 0;
-public:
-                                Tournament      ();
-    virtual std::vector<game *> getgameList     (){return gamelist;};
-    virtual int                 InitializeTour  ();
-    virtual int                 CreateGameLists ();
-    virtual int                 Addplayer       (string name);
-};
+    return 0;
+}
+
+
+int Tournament::PointCompare(uint16_t a, uint16_t b){
+    if (a > b){
+        return 1;
+    }else if (a = b){
+        return 0;
+    }else if (a < b){
+        return -1;
+    }
+    return 0;
+}
 
 class RankingTour: public Tournament
 {

@@ -1,5 +1,6 @@
 #ifndef BASEGAMECLASS_H
 #define BASEGAMECLASS_H
+using namespace std;
 
 typedef struct{
     int Arrows;

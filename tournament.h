@@ -2,23 +2,28 @@
 #define TOURNAMENT_H
 #include "game.h"
 #include "BaseGameclass.h"
-
+using namespace std;
 
 
 class Tournament
 {
 private:
-    std::vector<game *>         gamelist;
-    bool                        TourEnd = 0;
+    vector<game *>          gamelist;
+    bool                    TourEnd = 0;
 public:
-                                Tournament      ();
-    virtual std::vector<game *> getgameList     (){return gamelist;};
-    virtual int                 InitializeTour  ();
-    virtual int                 CreateGameLists ();
-    virtual int                 Addplayer       (string name);
-    void                        SortGames       (vector<game *>& input);
-    int                         ScoreCompare    (PlayerWithPoints & inputA, PlayerWithPoints & inputB);
-    int                         PointCompare    (uint16_t a, uint16_t b);
+                            Tournament      ();
+    virtual vector<game *>  getgameList     (){return gamelist;};
+    virtual int             InitializeTour  ();
+    virtual int             DoTour          ();
+    virtual int             Addplayer       (string name);
+    void                    SortGames       (vector<game *>& input);
+    int                     ScoreCompare    (PlayerWithPoints & inputA, PlayerWithPoints & inputB);
+    int                     PointCompare    (uint16_t a, uint16_t b);
+    int                     addPoints       (std::vector<game *> Games);
+    int                     countPoints     (std::vector<game *> Games);
+    int                     sortGames       (std::vector<game *> Games);
+    int                     createGames     (std::vector<game *> Games);
+    int                     eliminatePlayers(std::vector<game *> Games);
 
 };
 
@@ -64,18 +69,55 @@ int Tournament::PointCompare(uint16_t a, uint16_t b){
     return 0;
 }
 
+int Tournament::addPoints(std::vector<game *> Games){
+    size_t gamecount = Games.size();
+    
+    for (game *i: Games)
+    {
+        int roundcount = i->getrounds();
+        for (int j = 0; j < roundcount; j++)
+        {
+            
+            for (PlayerWithPoints k: i->players)
+            {
+                k.AddPoint(1);
+            }
+            
+        }
+        
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 class RankingTour: public Tournament
 {
 private:
     
 public:
     int     InitializeTour  ();
-    int     CreateGameLists ();
+    int     DoTour ();
     int     Addplayer       (string name);
 };
 
-int RankingTour::CreateGameLists(){
-    //* Insert code here to create the list for pre-tournament rankings
+int RankingTour::DoTour(){
+    //* Insert code here to create the list for pre-tournament rankings`
+    vector<game *> GameList;
+    addPoints( GameList);
+    countPoints(GameList);
+    sortGames(GameList);
+
     
 }
 int RankingTour::InitializeTour(){
@@ -99,10 +141,10 @@ class BracketingTour: public Tournament
 
     public:
     int InitializeTour();
-    int CreateGameLists();
+    int DoTour();
 };
 
-int BracketingTour::CreateGameLists(){
+int BracketingTour::DoTour(){
     //* Insert code here to create the list for bracketing rankings
     // check for buy.
     

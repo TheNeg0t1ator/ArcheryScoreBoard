@@ -2,6 +2,7 @@
 #define PLAYER_H
 #include "BaseGameclass.h"
 #include <string>
+#include <vector>
 using namespace std;
 
 
@@ -27,7 +28,7 @@ class PlayerWithPoints
 {
 private:
     Player              player;
-    std::vector<int>    roundPoints;
+    vector<int>    roundPoints;
     PointStruct         TotalScore;
 public:
                 PlayerWithPoints    (void);

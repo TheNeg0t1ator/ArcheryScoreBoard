@@ -1,10 +1,24 @@
 #ifndef BASEGAMECLASS_H
 #define BASEGAMECLASS_H
+#pragma once
+#include <iostream>
+using namespace std;
+
 
 typedef struct{
     int Arrows;
     int Rounds;
 }RoundStruct;
+
+class PointStruct
+{
+    public:
+    uint16_t            totalPoints;
+    uint16_t            total_tens;
+    uint16_t            total_x;
+};
+
+
 
 
 

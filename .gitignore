@@ -6,6 +6,7 @@
 ## my own rules ;)
 main.exe
 run.bat
+*.o
 
 # User-specific files
 *.rsuser

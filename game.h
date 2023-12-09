@@ -4,24 +4,22 @@
 #include <vector>
 #include "Player.h"
 #include "BaseGameclass.h"
+using namespace std;
 
-typedef struct{
-    Player player;
-    std::vector<int> points;
-}playerwithpoints;
+
 
 class game : public basegameclass
 {
 public:
-    void    addPlayer(Player * newplayer){players.push_back(newplayer);};    
+    void    addPlayer       (Player newplayer); 
+    void    addPlayerName   (string newplayer);
+    //void    Addpoint    (int point)             {roundPoints.emplace_back(point);};  
     game(RoundStruct input): basegameclass(input){}
+    std::vector<PlayerWithPoints>   players;
+    
 private:
-    bool    gameDone;
-    int     roundCounter;
-    std::vector<Player *> players;
+    bool                    gameDone;
+    int                     roundCounter;
 };
-
-
-
 
 #endif

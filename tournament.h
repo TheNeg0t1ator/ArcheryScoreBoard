@@ -19,7 +19,8 @@ private:
     void            SortGames       (vector<game *>& input);
     int             PointCompare    (uint16_t a, uint16_t b);
 public:
-                    Tournament      ();
+                    Tournament      (){};
+                    ~Tournament     (){};
     vector<game *>  getgameList     (){return gamelist;};
     virtual int     InitializeTour  ();
     virtual int     DoTour          ();

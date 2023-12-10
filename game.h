@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Player.h"
+#include "PlayerWithPoints.h"
 #include "BaseGameclass.h"
 using namespace std;
 

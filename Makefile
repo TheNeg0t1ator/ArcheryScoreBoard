@@ -7,7 +7,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
 # Source files
-SRC = main.cpp
+SRC = main.cpp game.cpp  PlayerWithPoints.cpp # rankingTour.cpp tournament.cpp bracketingTour.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)

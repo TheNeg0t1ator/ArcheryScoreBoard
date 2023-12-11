@@ -1,6 +1,6 @@
 #ifndef BASEGAMECLASS_H
 #define BASEGAMECLASS_H
-#pragma once
+// #pragma once
 #include <iostream>
 using namespace std;
 
@@ -35,19 +35,19 @@ private:
     bool    basegameclassDone;
 };
 
-basegameclass::basegameclass(RoundStruct input){
-    RoundInfo.Rounds = input.Rounds;
-    RoundInfo.Arrows = input.Arrows;
-}
+// basegameclass::basegameclass(RoundStruct input){
+//     RoundInfo.Rounds = input.Rounds;
+//     RoundInfo.Arrows = input.Arrows;
+// }
 
-RoundStruct Askrounds(void){
-    RoundStruct output;
-    cout << "How many arrows per round? " << endl << ": ";
-    cin >> output.Arrows;
-    cout << "How many Rounds? " << endl << ": ";
-    cin >> output.Rounds;
-    return output;
-}
+// RoundStruct Askrounds(void){
+//     RoundStruct output;
+//     cout << "How many arrows per round? " << endl << ": ";
+//     cin >> output.Arrows;
+//     cout << "How many Rounds? " << endl << ": ";
+//     cin >> output.Rounds;
+//     return output;
+// }
 
 
 

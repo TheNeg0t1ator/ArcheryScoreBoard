@@ -8,14 +8,14 @@ using namespace std;
 int main(void){
     cout << "Welcome to the ASB." << endl;
     system("cls");
-    RoundStruct GameRounds = Askrounds();
-    game Mygame(GameRounds);
+    // RoundStruct GameRounds = Askrounds();
+    // game Mygame(GameRounds);
 
     
-    Mygame.addPlayerName("jeff");
+    // Mygame.addPlayerName("jeff");
 
 
-    cout << Mygame.players[0].Getid() << endl;
+    // cout << Mygame.players[0].Getid() << endl;
     
     return 0;
 }
